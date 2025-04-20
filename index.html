@@ -13,7 +13,7 @@
       height: 100vh;
       margin: 0;
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      gap: 50px;
+      gap: 30px;
       overflow: hidden;
       position: relative;
     }
@@ -21,10 +21,70 @@
     h1 {
       color: #ff69b4;
       font-size: 2rem;
-      margin-top: 40px;
+      margin-top: 60px;
       text-shadow: 1px 1px #fff;
       position: absolute;
-      top: 20px;
+      top: 60px;
+      z-index: 99;
+    }
+
+    .music-banner {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #ffccdd;
+      padding: 10px 0;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+    }
+
+    .music-banner button {
+      background: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-left: 10px;
+      border-radius: 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .music-banner button:hover {
+      background: #ff85c1;
+    }
+
+    .polaroid-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      z-index: 2;
+    }
+
+    .polaroid {
+      background: white;
+      padding: 10px;
+      width: 120px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+      transform: rotate(-2deg);
+      transition: transform 0.3s;
+    }
+
+    .polaroid:hover {
+      transform: scale(1.05) rotate(0deg);
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
     }
 
     .bunny {
@@ -38,8 +98,7 @@
       margin-bottom: 80px;
     }
 
-    .bunny::before,
-    .bunny::after {
+    .bunny::before, .bunny::after {
       content: '';
       position: absolute;
       width: 30px;
@@ -49,89 +108,46 @@
       top: -50px;
     }
 
-    .bunny::before {
-      left: 10px;
-      transform: rotate(-10deg);
-    }
+    .bunny::before { left: 10px; transform: rotate(-10deg); }
+    .bunny::after { right: 10px; transform: rotate(10deg); }
 
-    .bunny::after {
-      right: 10px;
-      transform: rotate(10deg);
-    }
+    .eye, .cheek, .nose, .tooth, .foot { position: absolute; }
 
     .eye {
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      background: black;
-      border-radius: 50%;
-      top: 40px;
+      width: 15px; height: 15px; background: black; border-radius: 50%; top: 40px;
     }
 
-    .eye.left {
-      left: 40px;
-    }
-
-    .eye.right {
-      right: 40px;
-    }
+    .eye.left { left: 40px; }
+    .eye.right { right: 40px; }
 
     .cheek {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: #ffb6c1;
-      border-radius: 50%;
-      top: 70px;
+      width: 20px; height: 20px; background: #ffb6c1; border-radius: 50%; top: 70px;
     }
 
-    .cheek.left {
-      left: 20px;
-    }
-
-    .cheek.right {
-      right: 20px;
-    }
+    .cheek.left { left: 20px; }
+    .cheek.right { right: 20px; }
 
     .nose {
-      position: absolute;
-      top: 65px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
+      top: 65px; left: 50%; transform: translateX(-50%);
+      width: 0; height: 0;
       border-left: 7px solid transparent;
       border-right: 7px solid transparent;
       border-top: 10px solid #ff69b4;
     }
 
     .tooth {
-      position: absolute;
-      top: 90px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      height: 15px;
-      background: white;
+      top: 90px; left: 50%; transform: translateX(-50%);
+      width: 10px; height: 15px; background: white;
       border-radius: 0 0 2px 2px;
     }
 
     .foot {
-      position: absolute;
-      width: 30px;
-      height: 20px;
-      background: #fbb;
-      border-radius: 50%;
-      bottom: -10px;
+      width: 30px; height: 20px; background: #fbb;
+      border-radius: 50%; bottom: -10px;
     }
 
-    .foot.left {
-      left: 20px;
-    }
-
-    .foot.right {
-      right: 20px;
-    }
+    .foot.left { left: 20px; }
+    .foot.right { right: 20px; }
 
     @keyframes hop {
       0%, 100% { transform: translateY(0); }
@@ -162,7 +178,31 @@
   </style>
 </head>
 <body>
+  <!-- Banner da música -->
+  <div class="music-banner">
+    Música de fundo 🎵
+    <button onclick="toggleMusic()">▶️ / ⏸️</button>
+  </div>
+
   <h1>Feliz Páscoa meu Amorzinho 🐰💖</h1>
+
+  <!-- Polaroids -->
+  <div class="polaroid-container">
+    <div class="polaroid">
+      <img src="foto1.jpg" alt="Foto 1">
+      <p>Momento 1 💞</p>
+    </div>
+    <div class="polaroid">
+      <img src="foto2.jpg" alt="Foto 2">
+      <p>Momento 2 🐰</p>
+    </div>
+    <div class="polaroid">
+      <img src="foto3.jpg" alt="Foto 3">
+      <p>Momento 3 🌸</p>
+    </div>
+  </div>
+
+  <!-- Coelhinho -->
   <div class="bunny">
     <div class="eye left"></div>
     <div class="eye right"></div>
@@ -173,6 +213,28 @@
     <div class="foot left"></div>
     <div class="foot right"></div>
   </div>
+
+  <!-- Grama -->
   <div class="grass"></div>
+
+  <!-- Áudio oculto -->
+  <audio id="bg-music" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    const music = document.getElementById("bg-music");
+    let isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        music.pause();
+      } else {
+        music.play();
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
 </body>
 </html>
