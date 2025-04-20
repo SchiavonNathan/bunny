@@ -24,4 +24,4 @@ Uma página HTML divertida e personalizada para desejar uma **Feliz Páscoa** co
 
 1. **Clone ou baixe o projeto**
    ```bash
-   git clone https://github.com/seu-usuario/feliz-pascoa.git
+   git clone https://github.com/schiavonnathan/bunny-template
