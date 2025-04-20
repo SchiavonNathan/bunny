@@ -10,14 +10,6 @@ Uma página HTML divertida e personalizada para desejar uma **Feliz Páscoa** co
 
 ---
 
-## ✨ Prévia do Projeto
-
-<img src="screenshot.png" alt="Preview do site" width="600"/>
-
-> Você pode abrir o `index.html` diretamente no navegador para ver tudo funcionando!
-
----
-
 ## 🎵 Funcionalidades
 
 - ✅ Coelho animado com orelhas, olhos, bochechas e dentinho
